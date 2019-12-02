@@ -1,0 +1,1 @@
+export {ChainedPromiseEventEmitter} from "./ChainedPromiseEventEmitter";

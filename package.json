@@ -1,0 +1,28 @@
+{
+  "name": "@frenchex/chained-promise-event-emitter-lib",
+  "version": "1.0.0",
+  "description": "Small contract which let developers chain Promises",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "keywords": [
+    "chain",
+    "promise",
+    "compact-code"
+  ],
+  "author": "Stephane ERARD <serard06@protonmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.12.14",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@log4js-node/log4js-api": "^1.0.2"
+  },
+  "config": {
+    "npm.tests.npm": "@frenchex/chained-promise-event-emitter-lib-test",
+    "npm.tests.version": "^1.0.0"
+  }
+}
