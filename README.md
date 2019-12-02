@@ -1,3 +1,9 @@
+# Installation
+
+```bash
+npm install --save @frenchex/chained-promise-event-emitter-lib
+```
+
 # Information
 
 Small contract which helps developers chain Promises with logging and event-emission.
@@ -16,8 +22,3 @@ $cP
 .run()
 ```
 
-# Installation
-
-```bash
-npm install --save @frenchex/chained-promise-event-emitter-lib
-```
