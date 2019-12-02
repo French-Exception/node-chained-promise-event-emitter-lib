@@ -14,6 +14,7 @@
   ],
   "author": "Stephane ERARD <serard06@protonmail.com>",
   "license": "ISC",
+  "repository": "git@github.com:French-Exception/npm-chained-promise-event-emitter-lib.git",
   "devDependencies": {
     "@types/node": "^12.12.14",
     "typescript": "^3.7.2"
