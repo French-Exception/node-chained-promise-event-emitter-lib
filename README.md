@@ -8,6 +8,8 @@ npm install --save @frenchex/chained-promise-event-emitter-lib
 
 Small contract which helps developers chain Promises with logging and event-emission.
 
+# Usage example
+
 ```typescript
 import * as log4j from '@log4js-node/log4js-api';
 import {ChainedPromiseEventEmitter} from "@frenchex/chained-promise-event-emitter-lib";
@@ -22,3 +24,15 @@ $cP
 .run()
 ```
 
+# Testing
+
+Testing code is offloaded into another NPM package.
+
+```bash
+mkdir chained-promise-event-emitter-lib-test
+cd chained-promise-event-emitter-lib-test
+npm init -f
+npm i --save @frenchex/chained-promise-event-emitter-lib-test
+cd node_modules/@frenchex/chained-promise-event-emitter-lib
+npm run test
+```
