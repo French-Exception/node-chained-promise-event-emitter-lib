@@ -7,6 +7,9 @@
     "build": "tsc",
     "dev": "tsc -w"
   },
+  "engines": {
+    "node": ">10"
+  },
   "keywords": [
     "chain",
     "promise",
