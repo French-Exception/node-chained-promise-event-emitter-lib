@@ -4,8 +4,9 @@
   "description": "Small contract which let developers chain Promises",
   "main": "src/index.js",
   "scripts": {
+    "dev": "tsc -w",
     "build": "tsc",
-    "dev": "tsc -w"
+    "release": "npm publish"
   },
   "engines": {
     "node": ">10"
