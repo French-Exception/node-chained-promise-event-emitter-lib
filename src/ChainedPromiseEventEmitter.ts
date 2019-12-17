@@ -32,9 +32,11 @@ export class ChainedPromiseEventEmitter extends EventEmitter {
                     try {
                         const p = promiseFn.bind(self)(
                             /** resolve **/(...args) => {
+                                end = new Date();
                                 resolve(...args)
                             },
                             /** reject **/(...args) => {
+                                end = new Date();
                                 reject(...args);
                             });
                         return p;
@@ -70,12 +72,12 @@ export class ChainedPromiseEventEmitter extends EventEmitter {
         const promises = ((): { promise: Promise<any>, resolve: Function, reject: Function } => {
             const p: { promise: Promise<any>, resolve: Function, reject: Function } = <any>{};
 
-            p.promise = new Promise<any>((resolve: Function, reject: Function) => {
+            p.promise = new Promise<any>((_resolve: Function, _reject: Function) => {
                 p.resolve = () => {
-                    resolve();
+                    _resolve();
                 };
                 p.reject = (e) => {
-                    reject(e);
+                    _reject(e);
                 };
             });
 
@@ -87,10 +89,10 @@ export class ChainedPromiseEventEmitter extends EventEmitter {
         this._chain = promises.promise;
     }
 
-    run(): ChainedPromiseEventEmitter {
+    async run(): Promise<void> {
         this.start();
 
-        return this;
+        return this._chain;
     }
 
     promise() {

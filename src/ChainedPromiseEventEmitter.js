@@ -19,8 +19,10 @@ class ChainedPromiseEventEmitter extends EventEmitter {
                 const result = (() => {
                     try {
                         const p = promiseFn.bind(self)((...args) => {
+                            end = new Date();
                             resolve(...args);
                         }, (...args) => {
+                            end = new Date();
                             reject(...args);
                         });
                         return p;
@@ -52,12 +54,12 @@ class ChainedPromiseEventEmitter extends EventEmitter {
     initPromises() {
         const promises = (() => {
             const p = {};
-            p.promise = new Promise((resolve, reject) => {
+            p.promise = new Promise((_resolve, _reject) => {
                 p.resolve = () => {
-                    resolve();
+                    _resolve();
                 };
                 p.reject = (e) => {
-                    reject(e);
+                    _reject(e);
                 };
             });
             return p;
@@ -66,9 +68,9 @@ class ChainedPromiseEventEmitter extends EventEmitter {
         this.fail = promises.reject;
         this._chain = promises.promise;
     }
-    run() {
+    async run() {
         this.start();
-        return this;
+        return this._chain;
     }
     promise() {
         return this._chain;
